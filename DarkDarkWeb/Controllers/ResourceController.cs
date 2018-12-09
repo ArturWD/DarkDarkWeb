@@ -55,7 +55,7 @@ namespace DarkDarkWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ResourceId,ResourceName,URL,RefreshDate,Description,Contacts,CategoryId")] Resource resource)
+        public ActionResult Create([Bind(Include = "ResourceId,ResourceName,URL,RefreshDate,Description,Contacts,CategoryId")] ResourceCreateView resourceView)
         {
             if (ModelState.IsValid)
             {
