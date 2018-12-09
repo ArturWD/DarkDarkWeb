@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DDW.Core.Entities.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<section class="search-s">
+    <div class="menu divider">
+        <div class="search-functions">
+            <a href="@Url.Action("Index", "Home")">
+                <img class="logo" src="~/Content/Img/logo.svg" alt="DarkDarkWeb">
+            </a>
+        </div>
+        @Html.Partial("_AdminFunctions")
+    </div>
+</section>
+
+
+
+<section class="search-s flex">
+    <div class="search-categories">
+        
+    </div>
+    <div class="search-return">
+        <div class="search-return--header">
+            <h5 class="resource-number">Found @Model.Count() categories</h5>
+            <a href="@Url.Action("Create")" class="add">
+                <i class="fas fa-plus"></i>
+                <h4 class="menu-item-title">Create New</h4>
+            </a>
+        </div>
+
+        @foreach (var item in Model)
+        {
+            <div class="category-item">
+                <h3 class="category-name">@item.CategoryName </h3>
+            </div>
+            
+        }
+
+    </div>
+</section>
+
+
+
+
+
