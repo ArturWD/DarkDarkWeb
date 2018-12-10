@@ -55,17 +55,28 @@ namespace DarkDarkWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ResourceId,ResourceName,URL,RefreshDate,Description,Contacts,CategoryId")] ResourceCreateView resourceView)
+        public ActionResult Create( ResourceCreateView resourceView)
         {
             if (ModelState.IsValid)
             {
+                var resource = new Resource
+                {
+                    ResourceName = resourceView.ResourceName,
+                    URL = resourceView.URL,
+                    RefreshDate = DateTime.Now,
+                    Description = resourceView.Description,
+                    Contacts = resourceView.Contacts,
+                    CategoryId = resourceView.CategoryId,
+                    Category = db.Categories.Single(c => c.CategoryId == resourceView.CategoryId),
+                    Keywords = new List<Keyword>() { new Keyword { KeywordName ="hj"} }
+                };
                 db.Resources.Add(resource);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName", resource.CategoryId);
-            return View(resource);
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName", resourceView.CategoryId);
+            return View(resourceView);
         }
 
         // GET: Resource/Edit/5
