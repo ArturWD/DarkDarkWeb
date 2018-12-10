@@ -38,8 +38,11 @@ namespace DarkDarkWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Categories.Add(category);
-                db.SaveChanges();
+                if ( db.Categories.FirstOrDefault(c=> c.CategoryName == category.CategoryName) == null)
+                {
+                    db.Categories.Add(category);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
 

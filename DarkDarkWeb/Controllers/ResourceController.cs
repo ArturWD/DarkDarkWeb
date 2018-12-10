@@ -68,7 +68,7 @@ namespace DarkDarkWeb.Controllers
                     Contacts = resourceView.Contacts,
                     CategoryId = resourceView.CategoryId,
                     Category = db.Categories.Single(c => c.CategoryId == resourceView.CategoryId),
-                    Keywords = new List<Keyword>() { new Keyword { KeywordName ="hj"} }
+                    Keywords = resourceView.Keywords.GetKeywords()
                 };
                 db.Resources.Add(resource);
                 db.SaveChanges();

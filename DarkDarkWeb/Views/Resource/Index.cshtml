@@ -32,49 +32,27 @@
                 <h4 class="menu-item-title">Create New</h4>
             </a>
         </div>
-        
-        <div class="resource-search">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.udemy.com/learn-angularjs/" class="resource-search--name">Learn and Understand AngularJS</a>
-            <span class="resource-search--link">https://www.udemy.com/learn-angularjs/</span>
-            <div class="resource-search-meta">
-                <h3 class="resource-search--category">Category: <a href="#">AngularJS</a></h3>
-                <h5 class="resource-search--date">21 October, 2017</h5>
-            </div>
-            <div class="resource-search--details">
-                <p class="resource-search--description">
-                    Knowing AngularJS can get you a job or improve the one you have. It's a skill that will put you more in demand in the modern web development industry, and make your web software life easier, that's why it's so popular and backed by Google.
-                    This course will get you up and running quickly, and teach you the core knowledge you need to deeply understand and build AngularJS applications - and we'll build a single page application along the way.
-                    We'll design custom services, build custom directives, understand two-way binding, design a weather forecast app as a single page application, and lots more. Both starter and finished source code is provided as we go.
-                </p>
-                <span class="resource-search--keyword">web</span>
-                <span class="resource-search--keyword">js</span>
-                <span class="resource-search--keyword">programming</span>
-                <span class="resource-search--keyword">css</span>
-                <span class="resource-search--keyword">development</span>
-                <span class="resource-search--keyword">angular</span>
-                <span class="resource-search--keyword">course</span>
-            </div>
-            <div class="resource-search--more"><i class="fas fa-chevron-down arrow"></i></div>
-        </div>
 
-        <div class="resource-search">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.udemy.com/xamarin-forms-course/" class="resource-search--name">Xamarin Forms: Build Native Cross-platform Apps with C#</a>
-            <span class="resource-search--link">https://www.udemy.com/xamarin-forms-course/</span>
-            <div class="resource-search-meta">
-                <h3 class="resource-search--category">Category: <a href="#">Mobile Development</a></h3>
-                <h5 class="resource-search--date">11 September, 2018</h5>
+        @foreach (var resource in Model.Resources)
+        {
+            <div class="resource-search">
+                <a target="_blank" rel="noopener noreferrer" href="@resource.URL" class="resource-search--name">@resource.ResourceName</a>
+                <span class="resource-search--link">@resource.URL</span>
+                <div class="resource-search-meta">
+                    <h3 class="resource-search--category">Category: <a href="@Url.Action("Index", new { Category = resource.Category.CategoryName})">@resource.Category.CategoryName</a></h3>
+                    <h5 class="resource-search--date">@resource.RefreshDate.Day @resource.RefreshDate.ToMonthName(), @resource.RefreshDate.Year</h5>
+                </div>
+                <div class="resource-search--details">
+                    <p class="resource-search--description">@resource.Description</p>
+                    @foreach (var keyword in resource.Keywords)
+                    {
+                        <span class="resource-search--keyword">@keyword.KeywordName</span>
+                    }              
+                </div>
+                <div class="resource-search--more"><i class="fas fa-chevron-down arrow"></i></div>
             </div>
-            <div class="resource-search--details">
-                <p class="resource-search--description">Do you have an idea for an app and want to turn that into reality? Well, if you want to build that app for iOS, you need to know Objective-C, which is an old, C-based language. The alternative is to learn Swift. If you want to build the same app for Android, you need to learn Java. And if you want to build this app for Windows, of course you need to know C#.</p>
-                <span class="resource-search--keyword">mobile</span>
-                <span class="resource-search--keyword">c#</span>
-                <span class="resource-search--keyword">programming</span>
-                <span class="resource-search--keyword">design</span>
-                <span class="resource-search--keyword">development</span>
-                <span class="resource-search--keyword">course</span>
-            </div>
-            <div class="resource-search--more"><i class="fas fa-chevron-down arrow"></i></div>
-        </div>
+        }
+
     </div>
 </section>
 
