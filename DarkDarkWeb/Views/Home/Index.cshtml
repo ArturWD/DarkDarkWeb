@@ -12,10 +12,12 @@
 
     <div class="search-group">
         <img src="~/Content/Img/logo.svg" alt="DarkDarkWeb" class="search-logo">
-        <form action="" class="search-form">
-            <input class="search-input" type="text" placeholder="Search resources">
+
+        <form action="@Url.Action("Search")" method="post" class="search-form">
+            @Html.AntiForgeryToken()
+            <input name="keywordsString" class="search-input" type="text" placeholder="Search resources">
             <button class="submit-button" type="submit"><i class="fas fa-search"></i></button>
         </form>
-        <p class="search-spy">Spying on you since NOW</p>
-    </div>
+            <p class="search-spy">Spying on you since NOW</p>
+        </div>
 </section>
