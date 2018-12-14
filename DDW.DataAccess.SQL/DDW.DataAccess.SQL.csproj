@@ -85,6 +85,18 @@
     <Compile Include="Migrations\201812101137270_UniqueDeny.Designer.cs">
       <DependentUpon>201812101137270_UniqueDeny.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812110953566_requiredKeywords.cs" />
+    <Compile Include="Migrations\201812110953566_requiredKeywords.Designer.cs">
+      <DependentUpon>201812110953566_requiredKeywords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812110955341_requiredKeywordsView.cs" />
+    <Compile Include="Migrations\201812110955341_requiredKeywordsView.Designer.cs">
+      <DependentUpon>201812110955341_requiredKeywordsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812111013051_final.cs" />
+    <Compile Include="Migrations\201812111013051_final.Designer.cs">
+      <DependentUpon>201812111013051_final.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -117,6 +129,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812101137270_UniqueDeny.resx">
       <DependentUpon>201812101137270_UniqueDeny.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812110953566_requiredKeywords.resx">
+      <DependentUpon>201812110953566_requiredKeywords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812110955341_requiredKeywordsView.resx">
+      <DependentUpon>201812110955341_requiredKeywordsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812111013051_final.resx">
+      <DependentUpon>201812111013051_final.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

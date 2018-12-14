@@ -18,6 +18,7 @@ namespace DDW.Core.ViewModels
         public string URL { get; set; }
         public string Description { get; set; }
         public string Contacts { get; set; }
+        [Required(ErrorMessage = ("This field is required"))]
         public string Keywords { get; set; }
         [Required(ErrorMessage = ("This field is required"))]
         public int CategoryId { get; set; }

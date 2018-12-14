@@ -16,7 +16,7 @@ namespace DDW.Core.Entities
         [DisplayName("Resource Name")]
         public string ResourceName { get; set; }
         [Required(ErrorMessage = ("This field is required"))]
-        [RegularExpression(@"http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?", ErrorMessage = "Wrong format")]
+        //[RegularExpression(@"http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?", ErrorMessage = "Wrong format")]
         public string URL { get; set; }
         public DateTime RefreshDate { get; set; }
         public string Description { get; set; }

@@ -34,14 +34,14 @@ namespace DarkDarkWeb
         {
             var searchedKeywords = keywordsString.GetKeywordsString();
             var foundresources = new List<Resource>();
-            for (int i = keywordsString.Count(); i>0; i--)
+            for (int i = searchedKeywords.Length; i>0; i--)
             {
                 foreach(var r in resources)
                 {
                     if (r.Keywords.HowManyKeywords(searchedKeywords) == i) foundresources.Add(r);
                 }
             }
-            return resources;
+            return foundresources;
         }
         private static int HowManyKeywords(this IEnumerable<Keyword> containedKeywords, string[] searchedKeywords)
         {

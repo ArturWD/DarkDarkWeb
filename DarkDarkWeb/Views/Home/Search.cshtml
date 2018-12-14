@@ -3,7 +3,7 @@
 <section class="search-s">
     <div class="menu divider">
         <div class="search-functions">
-            <a href="main.html">
+            <a href="@Url.Action("Index","Home")">
                 <img class="logo" src="~/Content/Img/logo.svg" alt="DarkDarkWeb">
             </a>
             <form action="@Url.Action("Search")" method="post" class="search-form">
@@ -25,8 +25,8 @@
         <div class="search-return--header">
             <h5 class="resource-number">Found @Model.Resources.Count() resources</h5>
             <a href="@Url.Action("Create")" class="add">
-                <i class="fas fa-plus"></i>
-                <h4 class="menu-item-title">Create New</h4>
+
+                <h4 class="menu-item-title">Sort</h4>
             </a>
         </div>
 
@@ -36,7 +36,7 @@
                 <a target="_blank" rel="noopener noreferrer" href="@resource.URL" class="resource-search--name">@resource.ResourceName</a>
                 <span class="resource-search--link">@resource.URL</span>
                 <div class="resource-search-meta">
-                    <h3 class="resource-search--category">Category: <a href="@Url.Action("Index", new { Category = resource.Category.CategoryName})">@resource.Category.CategoryName</a></h3>
+                    <h3 class="resource-search--category">Category: <a href="@Url.Action("Index","Resource", new { Category = resource.Category.CategoryName})">@resource.Category.CategoryName</a></h3>
                     <h5 class="resource-search--date">@resource.RefreshDate.Day @resource.RefreshDate.ToMonthName(), @resource.RefreshDate.Year</h5>
                 </div>
                 <div class="resource-search--details">

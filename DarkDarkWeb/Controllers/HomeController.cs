@@ -26,7 +26,7 @@ namespace DarkDarkWeb.Controllers
         {
             List<Resource> resources;
             List<Category> categories = db.Categories.ToList();
-            if (keywordsString == null)
+            if (keywordsString == "")
             {
                 resources = db.Resources.ToList();
             }
